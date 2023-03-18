@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">北镇闾山巡查监测平台</string>
+    <string name="title_activity_main">北镇闾山巡查监测平台</string>
+    <string name="package_name">ionic.app.base</string>
+    <string name="custom_url_scheme">ionic.app.base</string>
+</resources>
