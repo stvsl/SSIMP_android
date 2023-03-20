@@ -2,48 +2,51 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Insbox</ion-title>
+        <ion-title>北镇闾山巡查监测平台</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
-      <ion-refresher slot="fixed" @ionRefresh="refresh($event)">
-        <ion-refresher-content></ion-refresher-content>
-      </ion-refresher>
-
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Inox</ion-title>
+          <ion-title size="large">任务</ion-title>
+          <ion-title size="large">我的</ion-title>
         </ion-toolbar>
       </ion-header>
-
-      <ion-list>
-        <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
-      </ion-list>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import {
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonRefresher,
-  IonRefresherContent,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/vue';
-import MessageListItem from '@/components/MessageListItem.vue';
-import { getMessages, Message } from '@/data/messages';
-import { ref } from 'vue';
-
-const messages = ref<Message[]>(getMessages());
-
-const refresh = (ev: CustomEvent) => {
-  setTimeout(() => {
-    ev.detail.complete();
-  }, 3000);
-};
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 </script>
+
+<style scoped>
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+</style>

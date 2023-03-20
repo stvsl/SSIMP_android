@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
+  "name": "SSIMP_Android",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "vue"
 }

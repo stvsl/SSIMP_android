@@ -1,4 +1,4 @@
-package com.stvsljl.ssimp.esj;
+package io.ionic.starter;
 
 import com.getcapacitor.BridgeActivity;
 
