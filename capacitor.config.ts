@@ -2,14 +2,9 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'SSIMP_Android',
+  appName: 'photo-gallery',
   webDir: 'dist',
-  bundledWebRuntime: false,
-   plugins: {
-    CapacitorCookies: {
-      enabled: true,
-    },
-  },
+  bundledWebRuntime: false
 };
 
 export default config;
