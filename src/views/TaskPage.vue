@@ -11,7 +11,7 @@
           <ion-title size="large">任务</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ExploreContainer />
+      <ExploreContainer :eid="eid" />
     </ion-content>
   </ion-page>
 </template>
@@ -20,5 +20,15 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
 // 读取cookie中的eid
-
+const eid = document.cookie.split(';').filter((item) => item.includes('eid'))[0].split('=')[1];
 </script>
+
+<style scoped>
+ion-title {
+  font-weight: 600;
+}
+
+ion-content {
+  --background: #f4f5f8;
+}
+</style>

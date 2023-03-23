@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { alertController, useIonRouter } from '@ionic/vue'
+import { alertController } from '@ionic/vue'
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -51,8 +51,16 @@ export default defineComponent({
             });
             (await alert).present();
           }
+        }).catch(async () => {
+          const alert = alertController.create({
+            header: '登录失败',
+            subHeader: '网络错误',
+            message: '请检查网络是否正常',
+            buttons: ['确定'],
+          });
+          (await alert).present();
         });
-    };
+    }
     return {
       eidortel,
       passwd,
