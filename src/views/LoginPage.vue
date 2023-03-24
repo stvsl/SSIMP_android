@@ -114,6 +114,7 @@ input[type="password"] {
   border: none;
   padding: 10px 0;
   padding-left: 20px;
+  padding-right: 20px;
   font-size: 1.3rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

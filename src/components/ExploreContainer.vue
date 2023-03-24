@@ -27,7 +27,7 @@ import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, 
 import { ref } from 'vue';
 import { alertController } from '@ionic/vue'
 import { Empty } from 'vant';
-import { TaskCard } from "./TaskCard.vue";
+import TaskCard from "@/components/TaskCard.vue";
 
 const prop = defineProps({
   eid: String,
@@ -99,6 +99,26 @@ ion-card-header.ios {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+.list-md {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.sc-ion-label-md-h {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+
+.item-native {
+  padding: 0;
+  margin: 0;
+}
+
+.item-inner {
+  padding: 0;
 }
 </style>
