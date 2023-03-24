@@ -6,9 +6,11 @@
         <ion-card-subtitle>Task&nbsp;List</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-list v-for="task in tasks" :key="task">
+        <ion-list v-for="task in tasks" :key="task.tid">
           <ion-item>
-            111
+            <ion-label>
+              <TaskCard :task="task" />
+            </ion-label>
           </ion-item>
         </ion-list>
       </ion-card-content>
@@ -21,15 +23,16 @@
 </template>
 
 <script setup lang="ts">
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem } from '@ionic/vue';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonLabel } from '@ionic/vue';
 import { ref } from 'vue';
 import { alertController } from '@ionic/vue'
 import { Empty } from 'vant';
+import { TaskCard } from "./TaskCard.vue";
 
 const prop = defineProps({
   eid: String,
 });
-const tasks = ref([]);
+const tasks = ref<Array<{ tid: number, name: string, content: string, area: string, poslo: number, posli: number, cycle: number, state: number, duration: number }>>([]);
 const getTaskList = () => {
   fetch(`http://localhost:6521/api/employee/task/list?eid=${prop.eid}`, {
     method: 'POST',
@@ -39,7 +42,8 @@ const getTaskList = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      tasks.value = JSON.parse(data.data);
+      const taskList = JSON.parse(data.data);
+      tasks.value = [...taskList];
     }).catch(async () => {
       const alert = alertController.create({
         header: '加载任务失败',

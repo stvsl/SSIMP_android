@@ -12,6 +12,7 @@
         </ion-toolbar>
       </ion-header>
       <ExploreContainer :eid="eid" />
+      <BackTop />
     </ion-content>
   </ion-page>
 </template>
@@ -19,6 +20,7 @@
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
+import { BackTop } from 'vant';
 // 读取cookie中的eid
 const eid = document.cookie.split(';').filter((item) => item.includes('eid'))[0].split('=')[1];
 </script>
