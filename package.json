@@ -13,6 +13,7 @@
     "@capacitor/android": "4.7.1",
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.7.1",
+    "@capacitor/geolocation": "^4.1.0",
     "@capacitor/haptics": "4.1.0",
     "@capacitor/ios": "4.7.1",
     "@capacitor/keyboard": "4.1.1",
@@ -30,6 +31,7 @@
     "ionicons": "^6.0.3",
     "vant": "^4.1.1",
     "vue": "^3.2.21",
+    "vue-baidu-map-3x": "^1.0.31",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
