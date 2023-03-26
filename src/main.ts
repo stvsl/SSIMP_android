@@ -6,7 +6,7 @@ import { IonicVue } from "@ionic/vue";
 // Above the createApp() line
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+// import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // Call the element loader after the platform has been bootstrapped
@@ -30,11 +30,18 @@ import "@ionic/vue/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-library.add(faChevronLeft);
+// library.add(faChevronLeft);
+import "vant/lib/index.css";
+import { Cell, Popup, Field, Button, ConfigProvider } from "vant";
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
+  .use(Cell)
+  .use(Popup)
+  .use(Field)
+  .use(Button)
+  .use(ConfigProvider)
   .component("font-awesome-icon", FontAwesomeIcon);
 
 router.isReady().then(() => {
