@@ -5,9 +5,9 @@ import router from "./router";
 import { IonicVue } from "@ionic/vue";
 // Above the createApp() line
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
-import { library } from "@fortawesome/fontawesome-svg-core";
+// import { library } from "@fortawesome/fontawesome-svg-core";
 // import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // Call the element loader after the platform has been bootstrapped
 defineCustomElements(window);
@@ -42,7 +42,7 @@ const app = createApp(App)
   .use(Field)
   .use(Button)
   .use(ConfigProvider)
-  .component("font-awesome-icon", FontAwesomeIcon);
+  // .component("font-awesome-icon", FontAwesomeIcon);
 
 router.isReady().then(() => {
   app.mount("#app");

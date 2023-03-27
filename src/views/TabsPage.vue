@@ -8,6 +8,12 @@
           <ion-label>任务</ion-label>
         </ion-tab-button>
 
+
+        <ion-tab-button tab="tab3" href="/home/feedback">
+          <ion-icon :icon="chatboxEllipsesOutline"></ion-icon>
+          <ion-label>反馈</ion-label>
+        </ion-tab-button>
+
         <ion-tab-button tab="tab2" href="/home/employeeinfo">
           <ion-icon :icon="person"></ion-icon>
           <ion-label>我的</ion-label>
@@ -19,5 +25,10 @@
 
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { person, list } from 'ionicons/icons';
+import { person, list, chatboxEllipsesOutline } from 'ionicons/icons';
 </script>
+<style scoped>
+svg {
+  background-color: aqua;
+}
+</style>
