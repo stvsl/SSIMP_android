@@ -119,6 +119,11 @@ const btnClicked = () => {
   } else if (btn?.innerText == "继续") {
     setBtnToRunning(btn);
     startTimer();
+  } else if (btn?.innerText == "正在进行") {
+    setBtnToContinue(btn);
+    stopTimer();
+  } else if (btn?.innerText == "已完成") {
+    location.href = "/home/task";
   }
 }
 let timer: number;
@@ -131,7 +136,45 @@ const startTimer = () => {
     };
     positions.push(pos);
     console.log(positions);
-  }, 10000);
+    // 判断数据量是否超过10个
+    if (positions.length > 9) {
+      // 提交数据
+      const raw = JSON.stringify({
+        "eid": document.cookie.split("; ").find((row) => row.startsWith("eid="))?.split("=")[1],
+        "tid": parseInt(tid as string),
+        "track": JSON.stringify(positions),
+      });
+      console.log(raw);
+      const myHeaders = new Headers();
+      myHeaders.append("User-Agent", "Apifox/1.0.0 (https://www.apifox.cn)");
+      myHeaders.append("Content-Type", "application/json");
+      // eslint-disable-next-line no-undef
+      const requestOptions: RequestInit = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      fetch("http://127.0.0.1:6521/api/employee/task/posupload", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          console.log(result)
+          if (JSON.parse(result).msg == "任务已完成") {
+            const btn = document.getElementById("btn");
+            if (btn)
+              setBtnToFinish(btn);
+            stopTimer();
+          }
+          positions = [];
+          startTimer();
+        })
+        .catch(error => {
+          startTimer();
+          console.log('error', error)
+        });
+      stopTimer();
+    }
+  }, 1000);
 }
 
 const stopTimer = () => {
@@ -229,7 +272,7 @@ const loadStatus = () => {
 
 loadStatus();
 
-const positions: { lng: number, lat: number }[] = [];
+let positions: { lng: number, lat: number }[] = [];
 
 const printCurrentPosition = async () => {
   const coordinates = await Geolocation.getCurrentPosition();
@@ -253,6 +296,11 @@ const setBtnToRunning = (btn: HTMLElement) => {
 const setBtnToContinue = (btn: HTMLElement) => {
   btn.innerText = "继续";
   btn.style.backgroundColor = "var(--ion-color-success)";
+}
+
+const setBtnToFinish = (btn: HTMLElement) => {
+  btn.innerText = "已完成";
+  btn.style.backgroundColor = "var(--ion-color-secondary)";
 }
 
 const cycleToText = (cycle: number) => {
