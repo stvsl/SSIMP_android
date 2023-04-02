@@ -32,7 +32,7 @@ import "@ionic/vue/css/display.css";
 import "./theme/variables.css";
 // library.add(faChevronLeft);
 import "vant/lib/index.css";
-import { Cell, Popup, Field, Button, ConfigProvider } from "vant";
+import { Cell, Popup, Field, Button, ConfigProvider, CellGroup } from "vant";
 
 const app = createApp(App)
   .use(IonicVue)
@@ -41,8 +41,9 @@ const app = createApp(App)
   .use(Popup)
   .use(Field)
   .use(Button)
-  .use(ConfigProvider)
-  // .component("font-awesome-icon", FontAwesomeIcon);
+  .use(CellGroup)
+  .use(ConfigProvider);
+// .component("font-awesome-icon", FontAwesomeIcon);
 
 router.isReady().then(() => {
   app.mount("#app");

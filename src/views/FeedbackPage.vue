@@ -11,14 +11,15 @@
           <ion-title size="large">反馈</ion-title>
         </ion-toolbar>
       </ion-header>
+      <FeedBack></FeedBack>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
+import FeedBack from '@/components/FeedBack.vue';
+import {  IonPage, IonHeader, IonToolbar, IonTitle, IonContent  } from "@ionic/vue";
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
