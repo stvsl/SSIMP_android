@@ -34,7 +34,7 @@ const prop = defineProps({
 });
 const tasks = ref<Array<{ tid: number, name: string, content: string, area: string, poslo: number, posli: number, cycle: number, state: number, duration: number }>>([]);
 const getTaskList = () => {
-  fetch(`http://localhost:6521/api/employee/task/list?eid=${prop.eid}`, {
+  fetch(`http://127.0.0.1:6521/api/employee/task/list?eid=${prop.eid}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

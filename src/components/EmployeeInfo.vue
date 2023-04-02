@@ -141,7 +141,7 @@ const confirm = async () => {
     redirect: 'follow'
   };
   console.log(requestO);
-  fetch("http://localhost:6521/api/employee/updatepasswd", requestO)
+  fetch("http://127.0.0.1:6521/api/employee/updatepasswd", requestO)
     .then(response => response.text())
     .then(async result => {
       if (JSON.parse(result).code === "SE200") {
@@ -202,7 +202,7 @@ const formatDate = (dateString?: string) => {
 }
 
 const employee = ref<Employee>();
-fetch("http://localhost:6521/api/employee/info?eid=" + eid, requestOptions)
+fetch("http://127.0.0.1:6521/api/employee/info?eid=" + eid, requestOptions)
   .then(response => response.text())
   .then(result => {
     employee.value = JSON.parse(JSON.parse(result).data);
