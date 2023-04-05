@@ -1,6 +1,6 @@
 {
-  "name": "ssimp_android",
-  "version": "0.1.0",
+  "name": "SSIMP",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,19 +13,31 @@
     "@capacitor/android": "4.7.1",
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.7.1",
+    "@capacitor/geolocation": "^4.1.0",
     "@capacitor/haptics": "4.1.0",
+    "@capacitor/ios": "4.7.1",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@ionic/pwa-elements": "^3.1.1",
+    "@ionic/storage": "^3.0.6",
     "@ionic/vue": "^6.0.0",
     "@ionic/vue-router": "^6.0.0",
+    "cordova-plugin-ionic": "5.5.3",
     "core-js": "^3.6.5",
     "ionicons": "^6.0.3",
+    "vant": "^4.1.1",
     "vue": "^3.2.21",
+    "vue-baidu-map-3x": "^1.0.31",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@capacitor/cli": "4.7.1",
-    "@types/jest": "29.5.0",
+    "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "@vue/cli-plugin-babel": "~5.0.0-rc.1",
@@ -45,5 +57,6 @@
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "typescript": "^4.3.5"
-  }
+  },
+  "description": "An Ionic project"
 }
