@@ -134,6 +134,8 @@ const startTimer = () => {
       lng: position.poslo,
       lat: position.posli,
     };
+    // 坐标转换
+
     positions.push(pos);
     console.log(positions);
     // 判断数据量是否超过10个
@@ -205,13 +207,19 @@ const startTask = () => {
   fetch("http://127.0.0.1:6521/api/employee/task/sign", requestOptions)
     .then(response => response.text())
     .then(result => {
-      console.log(result);
+      console.log("sign" + result);
       // 获取result中的msg
       if (JSON.parse(result).msg === "签到成功" || JSON.parse(result).msg === "已签到") {
         const btn = document.getElementById("btn");
         if (btn) {
           setBtnToRunning(btn);
           startTimer();
+        }
+      }
+      if (JSON.parse(result).msg === "已完成") {
+        const btn = document.getElementById("btn");
+        if (btn) {
+          setBtnToFinish(btn);
         }
       }
 
@@ -264,6 +272,8 @@ const loadStatus = () => {
           setBtnToStart(btn);
         } else if (JSON.parse(result).msg === "未完成") {
           setBtnToContinue(btn);
+        } else if (JSON.parse(result).msg === "已完成") {
+          setBtnToFinish(btn);
         }
       }
     })
