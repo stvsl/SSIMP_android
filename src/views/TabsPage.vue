@@ -18,6 +18,11 @@
           <ion-icon :icon="person"></ion-icon>
           <ion-label>我的</ion-label>
         </ion-tab-button>
+
+        <ion-tab-button tab="tab4" href="#">
+          <ion-icon :icon="people"></ion-icon>
+          <ion-label>人流量</ion-label>
+        </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
@@ -25,7 +30,7 @@
 
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { person, list, chatboxEllipsesOutline } from 'ionicons/icons';
+import { person, list, chatboxEllipsesOutline, people } from 'ionicons/icons';
 </script>
 <style scoped>
 svg {
